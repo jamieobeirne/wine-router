@@ -1,0 +1,64 @@
+<h2>Reactive Form For Wine</h2>
+
+<div class="form-group">
+    <form [formGroup]="wineForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-containers">
+            <div class="wine-name">
+                <input type="text" placeholder="Wine Name Here" name="wineName" formControlName="name">
+                <div *ngIf="name.invalid && (name.dirty ||name.touched )">
+                    <div class="error-message" *ngIf="name.errors.required">Name is required</div>
+                    <div class="error-message" *ngIf="name.errors.NameNotAllowed">
+                        Name must be Laya, K-Naina, Verdejo or Monstrell, please
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-containers">
+            <div class="wine-price">
+                <input min="1" type="number" placeholder="Wine Price Here" formControlName="price">
+                <div *ngIf="price.invalid && ( price.dirty || price.touched )">
+                    <div class="error-message" *ngIf="price.errors.required">
+                        Price is required
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-containers">
+            <div class="wine-url">
+                <input type="text" placeholder="Wine URL Here" formControlName="url">
+
+                <div *ngIf="url.invalid && (url.dirty || url.touched )">
+                    <div class="error-message" *ngIf="url.errors.required">
+                        A Url is required
+                    </div>
+                    <div class="error-message" *ngIf="url.errors.pattern">
+                        That's not a valid url
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="onSale-confirm">
+            <input type="checkbox" name="onSale" formControlName="onSale">
+            This wine is on sale!
+        </div>
+        <button type="submit">Create</button>
+    </form>
+</div>
+
+<div class="json-message">
+    <div class="json-message-inner">
+        <p>Form Control value:</p>
+        <p>{{ wineForm.value | json }}</p>
+    </div>
+    <div class="json-message-inner">
+        <p>Form Control status:</p>
+        <p>{{ wineForm.status | json }}</p>
+    </div>
+
+
+</div>

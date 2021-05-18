@@ -1,0 +1,42 @@
+h2{
+    font-size: 37px; 
+}
+
+.wine-name{
+    margin: 10px 0 10px 0;
+}
+
+input, button, .onSale-confirm{
+    font-size: 25px;
+    margin: 2px;
+
+}
+.form-containers{
+    margin: 0 0 25px 0;
+}
+
+
+
+h4{
+    margin:2px;
+}
+
+.error-message{
+    color:red;
+    margin:0 0 0 10px;
+}
+
+.json-message{
+    font-size: 15px;
+    margin-top: 55px;
+    margin-bottom: 80px;
+}
+
+.json-message-inner{
+    margin:0px 0 35px 0;
+}
+
+.json-message-inner p{
+    margin:3px;
+    padding:0;
+}

@@ -1,0 +1,18 @@
+<div class="wineitem-main-container" (click)="sendSelectedWine($event)">
+    <div class="wineitem-container"
+        [ngClass]="{'in-stock': Data.isOnSale == true, 'out-of-stock': Data.isOnSale == false}">
+        <!--<div class="wineitem-container" [ngClass]="Data.isOnSale ? 'in-stock' : 'out-of-stock'">-->
+        <img src="{{Data.imageUrl}}" alt="image of wine bottle">
+        <h6>{{Data.name}}</h6>
+        <h6>{{Data.price}}€</h6>
+        <div class="wine-button">
+            <button type="button" (click)="increase()">+</button>
+            <h6>{{Data.quantityInCart}}</h6>
+            <!--<select>
+                <option *ngFor="let item of numbers;" value="{{item}}">{{item + 1}}</option>
+            </select>-->
+            <button type="button" *ngIf="Data.quantityInCart > 0" (click)=" decrease()">-</button>
+        </div>
+
+    </div>
+</div>

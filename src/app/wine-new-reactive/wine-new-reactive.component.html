@@ -1,4 +1,4 @@
-<h2>Reactive Form For Wine</h2>
+<h2>New Wine</h2>
 
 <div class="form-group">
     <form [formGroup]="wineForm" (ngSubmit)="onSubmit()">
@@ -52,13 +52,7 @@
 
 <div class="json-message">
     <div class="json-message-inner">
-        <p>Form Control value:</p>
+        <p>Form value:</p>
         <p>{{ wineForm.value | json }}</p>
     </div>
-    <div class="json-message-inner">
-        <p>Form Control status:</p>
-        <p>{{ wineForm.status | json }}</p>
-    </div>
-
-
 </div>

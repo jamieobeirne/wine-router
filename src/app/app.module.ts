@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { WineitemComponent } from './wine/wineitem/wineitem.component';
 import { WinelistComponent } from './winelist/winelist.component';
 import { WineNewReactiveComponent } from './wine-new-reactive/wine-new-reactive.component';
+import { WineService } from './services/wine.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { WineNewReactiveComponent } from './wine-new-reactive/wine-new-reactive.
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [WineService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

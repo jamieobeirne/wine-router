@@ -8,9 +8,9 @@ describe('WineitemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WineitemComponent ]
+      declarations: [WineitemComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

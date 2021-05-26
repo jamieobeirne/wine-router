@@ -8,4 +8,5 @@ export interface Wine {
     isOnSale: boolean; /***/
     quantityInCart: number;
     foodPairing: Food[];
+    wineID: number
 }

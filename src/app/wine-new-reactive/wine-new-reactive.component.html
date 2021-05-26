@@ -1,7 +1,7 @@
 <h2>New Wine</h2>
 
 <div class="form-group">
-    <form [formGroup]="wineForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="wineForm" (ngSubmit)="createWine()">
 
         <div class="form-containers">
             <div class="wine-name">
@@ -9,7 +9,7 @@
                 <div *ngIf="name.invalid && (name.dirty ||name.touched )">
                     <div class="error-message" *ngIf="name.errors.required">Name is required</div>
                     <div class="error-message" *ngIf="name.errors.NameNotAllowed">
-                        Name must be Laya, K-Naina, Verdejo or Monstrell, please
+                        Name must be Laya, K-Naina, Verdejo or Monastrell, please
                     </div>
                 </div>
             </div>
@@ -30,12 +30,25 @@
 
         <div class="form-containers">
             <div class="wine-url">
-                <input type="text" placeholder="Wine URL Here" formControlName="url">
+                <input type="text" placeholder="Image Url here" formControlName="imageUrl">
 
                 <div *ngIf="url.invalid && (url.dirty || url.touched )">
                     <div class="error-message" *ngIf="url.errors.required">
-                        A Url is required
+                        A Url is required.
                     </div>
+                    <div class="error-message" *ngIf="url.errors.required">
+                        Try this one:
+                    </div>
+                    <div class="error-message" *ngIf="url.errors.required">
+                        https://www.vinatis.es/54180-detail_default/lion-agiorgitiko-2018-giannikos-winery.png
+                    </div>
+                    <div class="error-message" *ngIf="url.errors.required">
+                        Or try this local path:
+                    </div>
+                    <div class="error-message" *ngIf="url.errors.required">
+                        ../../assets/wine2.png
+                    </div>
+
                     <div class="error-message" *ngIf="url.errors.pattern">
                         That's not a valid url
                     </div>

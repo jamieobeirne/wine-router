@@ -7,9 +7,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { WineNewReactiveComponent } from '../wine-new-reactive/wine-new-reactive.component'
 
 
-import { Observable } from 'rxjs/Observable';
-import { _throw as ObservableThrow } from 'rxjs/observable/throw';
-import { of as ObservableOf } from 'rxjs/observable/of';
+import { Observable } from 'rxjs';          /* not from pathways in the book*/
+import { throwError as ObservableThrow } from 'rxjs'; /*not _throw*/
+import { of as ObservableOf } from 'rxjs';
+import { WineQuantityChange } from '../models/WineQuantityChange';
+
 
 
 
@@ -17,11 +19,11 @@ import { of as ObservableOf } from 'rxjs/observable/of';
   /*{providedIn: 'root'} moved to app.module*/
 )
 export class WineService {
-
   private wines: Wine[];
   public wineForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  /*constructor(private fb: FormBuilder)*/
+  constructor() {
     this.wines = [
       {
         name: "VEGA SICILIA UNICO 2009",
@@ -30,6 +32,7 @@ export class WineService {
         isOnSale: true, /**affects background color*/
         quantityInCart: 2,
         foodPairing: [],
+        wineID: 1,
       },
       {
         name: "TE KOKO 2016",
@@ -38,6 +41,7 @@ export class WineService {
         isOnSale: true,/**affects background color*/
         quantityInCart: 1,
         foodPairing: [],
+        wineID: 2,
       },
       {
         name: "CHAMPAGNE DOM PERIGNON 2010",
@@ -46,6 +50,7 @@ export class WineService {
         isOnSale: false,/**affects background color*/
         quantityInCart: 0,
         foodPairing: [],
+        wineID: 3,
       }
     ];
     /*this.createForm();*/
@@ -57,21 +62,14 @@ export class WineService {
   }
 
 
-  createWine(wine: Wine): Observable<any> {
-    let foundWine = this.wines.find(each => each.name === wine.name);
-    if (foundWine) {
-      return ObservableThrow({
-        msg: 'Wine with name ' +
-          wine.name + ' already exists'
-      });
+  createWineService(wine: Wine): Observable<any> {
+    let newWine = this.wines.find(each => each.name === wine.name);
+    if (newWine) {
+      return ObservableThrow({ msg: 'Wine with name ' + wine.name + ' already exists' });
     }
     this.wines.push(wine);
-    return ObservableOf({
-      msg: 'Wine with name ' + wine.name +
-        ' successfully created'
-    });;
+    return ObservableOf({ msg: 'Wine with name ' + wine.name + ' successfully created' });
+
   }
-
-
 
 }

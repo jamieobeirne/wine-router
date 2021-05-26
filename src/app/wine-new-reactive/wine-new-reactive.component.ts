@@ -16,10 +16,15 @@ import { WineService } from '../services/wine.service';
 
 export class WineNewReactiveComponent {
 
-  private wineService: WineService;
-  public wine: Wine[];
+  /*private wineService: WineService;*/
+  ///public wine: Wine[];
   public wineForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+
+  // variable wineService -> Injeccion de Dependencia por Constructor
+  constructor(private wineService: WineService, private fb: FormBuilder) {
+
+    //this.wineService = new WineService();
+
     this.createForm();
   }
 
@@ -27,25 +32,39 @@ export class WineNewReactiveComponent {
     this.wineForm = this.fb.group({
       name: [null, [Validators.required, NameWineValidator()]],
       price: [1, [Validators.required, Validators.min(1)]],
-      url: [null, [Validators.required, Validators.pattern('^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$')]],
+      imageUrl: [null, [Validators.required/*, Validators.pattern('^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$')*/]],
       onSale: false
     });
   }
 
   onSubmit() {
     console.log('Wine Form Value', this.wineForm.value);
+
   }
 
   get name() { return this.wineForm.get('name'); }
   get price() { return this.wineForm.get('price'); }
-  get url() { return this.wineForm.get('url'); }
+  get url() { return this.wineForm.get('imageUrl'); }
 
 
-  createWine(wineForm) {
-    if (wineForm.valid) {
-      let created = this.wineService.createWine(this.wine);
+  createWine() {
 
+
+    if (this.wineForm.valid) {
+      console.log(this.wineForm.value)
+      const wine: Wine = {
+        ...this.wineForm.value,
+        isOnSale: this.wineForm.value.onSale,
+        quantityInCart: 0
+      }
+      this.wineService.createWineService(wine)
+
+    } else {
+      console.error('Wine is in invalid state');
     }
 
   }
+
+
+
 }

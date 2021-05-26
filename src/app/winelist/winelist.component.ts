@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Wine } from '../models/Wine';
 import { WineQuantityChange } from '../models/WineQuantityChange';
 import { WineService } from '../services/wine.service';
-
 
 
 @Component({
@@ -12,13 +12,15 @@ import { WineService } from '../services/wine.service';
 })
 export class WinelistComponent implements OnInit {
 
-  public wines: Wine[];
 
-  constructor(private wineServiceVariable: WineService) { }
+  public wines$: Observable<Wine[]>;
+  constructor(private wineService: WineService) { }
 
-  ngOnInit(): void {
-    this.wines = this.wineServiceVariable.getWine();
+
+  ngOnInit() {
+    this.wines$ = this.wineService.getWine();
   }
+
 
   onSelectedWine(WineQuantity: WineQuantityChange) {
     console.log("Wine Data:", WineQuantity);

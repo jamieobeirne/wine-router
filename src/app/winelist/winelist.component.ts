@@ -24,6 +24,7 @@ export class WinelistComponent implements OnInit {
 
   onSelectedWine(WineQuantity: WineQuantityChange) {
     console.log("Wine Data:", WineQuantity);
+    this.wineService.changeQuantity(WineQuantity.wineID, WineQuantity.cantidadWine)
   }
 
 }

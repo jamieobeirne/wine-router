@@ -7,7 +7,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { WineNewReactiveComponent } from '../wine-new-reactive/wine-new-reactive.component'
 
 
-import { Observable } from 'rxjs';          /* not from pathways in the book*/
+import { Observable, of } from 'rxjs';          /* not from pathways in the book*/
 import { throwError as ObservableThrow } from 'rxjs'; /*not _throw*/
 import { of as ObservableOf } from 'rxjs';
 import { WineQuantityChange } from '../models/WineQuantityChange';
@@ -61,6 +61,12 @@ export class WineService {
     return ObservableOf(this.wines);
   }
 
+
+  changeQuantity(wineID: number, newQuantity: number): Observable<Wine> {
+    const wine = this.wines.find(wine => wine.wineID === wineID);
+    wine.quantityInCart += newQuantity;
+    return ObservableOf(wine);
+  }
 
   createWineService(wine: Wine): Observable<any> {
     let newWine = this.wines.find(each => each.name === wine.name);

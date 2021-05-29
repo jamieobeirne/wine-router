@@ -1,4 +1,5 @@
-<div class="wineitem-main-container" (click)="sendSelectedWine($event)">
+<!-- (click)="sendSelectedWine($event)" -->
+<div class="wineitem-main-container">
     <div class="wineitem-container"
         [ngClass]="{'in-stock': Data.isOnSale == true, 'out-of-stock': Data.isOnSale == false}">
         <!--<div class="wineitem-container" [ngClass]="Data.isOnSale ? 'in-stock' : 'out-of-stock'">-->

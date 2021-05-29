@@ -1,7 +1,7 @@
 
 export interface WineQuantityChange {
 
-    wine: string;
+    wineID: number;
     cantidadWine: number;
 
 }

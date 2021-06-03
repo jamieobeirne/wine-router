@@ -8,6 +8,8 @@ import { WinelistComponent } from './winelist/winelist.component';
 import { WineNewReactiveComponent } from './wine-new-reactive/wine-new-reactive.component';
 import { WineService } from './services/wine.service';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,8 @@ import { WineService } from './services/wine.service';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [WineService],
   bootstrap: [AppComponent]

@@ -51,13 +51,17 @@ export class WineNewReactiveComponent {
 
 
     if (this.wineForm.valid) {
-      console.log(this.wineForm.value)
+
       const wine: Wine = {
         ...this.wineForm.value,
         isOnSale: this.wineForm.value.onSale,
-        quantityInCart: 0
+        quantityInCart: 0,
+        id: 0
       }
-      this.wineService.createWineService(wine)
+
+
+      console.log(wine);
+      this.wineService.createWine(wine)
 
     } else {
       console.error('Wine is in invalid state');

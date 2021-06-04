@@ -17,7 +17,7 @@ import { WineService } from '../services/wine.service';
 export class WineNewReactiveComponent {
 
   /*private wineService: WineService;*/
-  ///public wine: Wine[];
+  public wine: Wine;
   public wineForm: FormGroup;
 
   // variable wineService -> Injeccion de Dependencia por Constructor
@@ -47,28 +47,35 @@ export class WineNewReactiveComponent {
   get url() { return this.wineForm.get('imageUrl'); }
 
 
+  initializeStock() {
+    this.wine = {
+      id: 0,
+      name: '',
+      imageUrl: '',
+      price: 0,
+      isOnSale: true,
+      quantityInCart: 1,
+      foodPairing: [],
+      wineID: 0
+
+    };
+  }
+
   createWine() {
-
-
     if (this.wineForm.valid) {
-
-      const wine: Wine = {
+      /*const wine: Wine = {
         ...this.wineForm.value,
         isOnSale: this.wineForm.value.onSale,
         quantityInCart: 0,
         id: 0
-      }
-
-
-      console.log(wine);
-      this.wineService.createWine(wine)
-
-    } else {
+      }*/
+      this.wineService.createWine(this.wine)
+        .subscribe((result: any) => {/*subscribe to the createWine method*/
+          this.initializeStock();
+        });
+    }
+    else {
       console.error('Wine is in invalid state');
     }
-
   }
-
-
-
 }

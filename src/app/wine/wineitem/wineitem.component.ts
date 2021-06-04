@@ -3,6 +3,9 @@ import { Wine } from "../../models/Wine";
 import { Food } from "../../models/Food"
 import { WineQuantityChange } from 'src/app/models/WineQuantityChange';
 
+import { WineService } from 'src/app/services/wine.service';
+
+
 @Component({
   selector: 'app-wineitem',
   templateUrl: './wineitem.component.html',
@@ -16,12 +19,12 @@ export class WineitemComponent implements OnInit {
   @Input() public Data: Wine;
   @Output() private SelectedWine: EventEmitter<WineQuantityChange>;
 
-
   numbers = [...Array(20).keys()];
 
   constructor() {
     this.SelectedWine = new EventEmitter<WineQuantityChange>();
   }
+
 
   ngOnInit() {
 

@@ -1,3 +1,13 @@
+<div class="searh-container">
+    <div>
+        <div>
+            <input name="searchBox" [(ngModel)]="searchString" placeholder="Search Here" (keyup)="search()">
+        </div>
+        <h2>
+            We have found {{(wines$ | async)?.length}} wines!
+        </h2>
+    </div>
+</div>
 <div class="wineitem-global-container">
     <app-wineitem *ngFor="let item of wines$ | async" [Data]="item" (SelectedWine)="onSelectedWine($event)">
     </app-wineitem>

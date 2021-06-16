@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { WineitemComponent } from './wine/wineitem/wineitem.component';
@@ -9,18 +9,25 @@ import { WineNewReactiveComponent } from './wine-new-reactive/wine-new-reactive.
 import { WineService } from './services/wine.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutesModule } from './app-routes.module';
+import { LoginComponent } from './user/login/login/login.component';
+import { RegisterComponent } from './user/register/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WineitemComponent,
     WinelistComponent,
-    WineNewReactiveComponent
+    WineNewReactiveComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    AppRoutesModule
   ],
   providers: [WineService],
   bootstrap: [AppComponent]

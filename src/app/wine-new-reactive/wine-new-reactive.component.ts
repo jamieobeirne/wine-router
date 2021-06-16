@@ -57,19 +57,18 @@ export class WineNewReactiveComponent {
       quantityInCart: 1,
       foodPairing: [],
       wineID: 0
-
     };
   }
 
   createWine() {
     if (this.wineForm.valid) {
-      /*const wine: Wine = {
+      const wine: Wine = {
         ...this.wineForm.value,
         isOnSale: this.wineForm.value.onSale,
         quantityInCart: 0,
         id: 0
-      }*/
-      this.wineService.createWine(this.wine)
+      }
+      this.wineService.createWine(wine)
         .subscribe((result: any) => {/*subscribe to the createWine method*/
           this.initializeStock();
         });

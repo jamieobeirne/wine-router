@@ -19,17 +19,21 @@ export class WineService {
     return this.http.get<Wine[]>('/api/wine')
   }
 
+  getWines(query: string): Observable<Wine[]> {
+    console.log(query);
+    return this.http.get<Wine[]>(`/api/wine?q=${query}`);
+  }
+
   createWine(wine: Wine): Observable<any> {
     return this.http.post('/api/wine', wine);
   }
 
-
   changeQuantity(wineID: number, newQuantity: number): Observable<Wine> {
-    const wine = this.wines.find(wine => wine.wineID === wineID);
-    wine.quantityInCart += newQuantity;
-    return ObservableOf(wine);
+    return this.http.patch<Wine>('/api/wine/' + wineID,
+      {
+        changeInQuantity: newQuantity
+      });
   }
-
 
 
 }

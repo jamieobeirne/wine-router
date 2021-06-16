@@ -32,18 +32,18 @@ export class WineitemComponent implements OnInit {
 
   increase(): void {
     //this.Data.quantityInCart += 1;
-    this.SelectedWine.emit({ wineID: this.Data.wineID, cantidadWine: 1 });
+    this.SelectedWine.emit({ wineID: this.Data.id, cantidadWine: 1 });
   }
 
   decrease(): void {
     //this.Data.quantityInCart -= 1;
-    this.SelectedWine.emit({ wineID: this.Data.wineID, cantidadWine: -1 });
+    this.SelectedWine.emit({ wineID: this.Data.id, cantidadWine: -1 });
   }
 
 
   sendSelectedWine(event): void {
     const wineQuantity: WineQuantityChange = {
-      wineID: this.Data.wineID,
+      wineID: this.Data.id,
       cantidadWine: this.Data.quantityInCart
     };
     this.SelectedWine.emit(wineQuantity)

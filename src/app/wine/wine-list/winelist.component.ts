@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Wine } from '../models/Wine';
-import { WineQuantityChange } from '../models/WineQuantityChange';
-import { WineService } from '../services/wine.service';
+import { Wine } from '../../models/Wine';
+import { WineQuantityChange } from '../../models/WineQuantityChange';
+import { WineService } from '../../services/wine.service';
 
 import { Subject } from 'rxjs';
 import {

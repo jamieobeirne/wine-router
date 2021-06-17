@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { NameWineValidator } from '../NameWineValidator';
+import { NameWineValidator } from '../../validators/NameWineValidator';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Wine } from '../models/Wine';
-import { WineService } from '../services/wine.service';
+import { Wine } from '../../models/Wine';
+import { WineService } from '../../services/wine.service';
 
 
 @Component({

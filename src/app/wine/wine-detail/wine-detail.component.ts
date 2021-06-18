@@ -10,6 +10,21 @@ import { WineService } from '../../services/wine.service';
 })
 export class WineDetailComponent {
   public wine: Wine;
-  constructor() { }
+  constructor(private wineService: WineService,
+    private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    const wineCode = this.route.snapshot.paramMap.get('id');
+    this.wineService.getWine(wineCode).subscribe(wine => this.wine = wine);
+  }
+
+  /*public stock: Stock;
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.data.subscribe((data: {stock: Stock}) => {
+      this.stock = data.stock;
+    });
+  }*/
 
 }

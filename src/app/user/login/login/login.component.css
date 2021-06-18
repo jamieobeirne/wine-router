@@ -1,0 +1,19 @@
+.user-name input, .password input{
+    margin: 80px 0 10px 0;
+    font-size: 27px;
+    padding: 3px 10px;
+}
+
+.password input{
+    margin-top: 35px;
+}
+
+button{
+    font-size: 25px;
+    margin-top: 60px;
+    padding: 5px 15px;
+}
+
+button:hover{
+    background-color: #9ae1f3;
+}

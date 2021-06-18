@@ -21,14 +21,15 @@ export class WineitemComponent implements OnInit {
 
   numbers = [...Array(20).keys()];
 
-  constructor() {
+  /*constructor() {
     this.SelectedWine = new EventEmitter<WineQuantityChange>();
-  }
+  }*/
+
+  @Input() public wine: WindowOrWorkerGlobalScope;
+  constructor(private wineService: WineService) { this.SelectedWine = new EventEmitter<WineQuantityChange>() }
 
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   increase(): void {
     //this.Data.quantityInCart += 1;

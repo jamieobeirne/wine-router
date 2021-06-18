@@ -15,8 +15,8 @@ export class WineService {
 
   constructor(private http: HttpClient) { }
 
-  getWine(): Observable<Wine[]> {
-    return this.http.get<Wine[]>('/api/wine')
+  getWine(id: string): Observable<Wine> {
+    return this.http.get<Wine>('/api/wine' + id)
   }
 
   getWines(query: string): Observable<Wine[]> {

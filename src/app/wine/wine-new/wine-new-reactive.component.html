@@ -9,9 +9,12 @@
                 <div class="wine-name">
                     <input type="text" placeholder="Wine Name Here" name="wineName" formControlName="name">
                     <div *ngIf="name.invalid && (name.dirty ||name.touched )">
-                        <div class="error-message" *ngIf="name.errors.required">Name is required</div>
+                        <div class="error-message" *ngIf="name.errors.required">A name is required</div>
                         <div class="error-message" *ngIf="name.errors.NameNotAllowed">
-                            Name must be Laya, K-Naina, Verdejo or Monastrell, please
+                            Try on one of these:
+                        </div>
+                        <div class="error-message" *ngIf="name.errors.NameNotAllowed">
+                            Laya , K-Naina , Verdejo or Monastrell
                         </div>
                     </div>
                 </div>
@@ -39,14 +42,10 @@
                             A Url is required.
                         </div>
                         <div class="error-message" *ngIf="url.errors.required">
-                            Try these:
+                            Try this one:
                         </div>
                         <div class="error-message" *ngIf="url.errors.required">
                             https://www.vinatis.es/54180-detail_default/lion-agiorgitiko-2018-giannikos-winery.png
-                        </div>
-
-                        <div class="error-message" *ngIf="url.errors.required">
-                            ../../assets/images/wine2.png
                         </div>
 
                         <div class="error-message" *ngIf="url.errors.pattern">
@@ -55,6 +54,15 @@
                     </div>
                 </div>
             </div>
+
+
+            <!--<div class="form-containers">
+                <div class="wine-food">
+                    <input type="text" placeholder="Suggested Food" name="foodPairing" formControlName="foodPairing">
+                </div>
+            </div>-->
+
+
             <div class="onSale-confirm">
                 <input type="checkbox" name="onSale" formControlName="onSale">
                 This wine is on sale!

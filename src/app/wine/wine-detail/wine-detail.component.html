@@ -1,10 +1,18 @@
-<div [class.sale]="wine.isOnSale">
-    <div><img [src]="wine.imageUrl"></div>
-    <div>
-        <div>{{wine.name}}</div>
-        <div>$ {{wine.price}}</div>
-        <div>
-            <!--{{wine.description}}-->
+<div class="detail-container">
+    <div><img width=35% [src]="wine.imageUrl"></div>
+    <div>{{wine.name}} at only ${{wine.price}} is a fantastic purchase!</div>
+    <div class="food-container">
+        <div>Food suggestions:</div>
+        <div *ngFor="let item of wine.foodPairing; index as i">
+            <div class="food">
+                <div class="food-name">{{wine.foodPairing[i].name}} which is
+                    {{wine.foodPairing[i].kcal}} calories. </div>
+                <div *ngIf="wine.foodPairing[i].vegan"> Vegan friendly.</div>
+                <div *ngIf="!wine.foodPairing[i].vegan"> Not vegan.</div>
+            </div>
+
         </div>
+
     </div>
+
 </div>

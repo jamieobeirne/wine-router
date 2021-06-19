@@ -15,7 +15,7 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'wines/list', component: WinelistComponent },
     { path: 'wines/create', component: WineNewReactiveComponent },
-    { path: 'wine/:code', component: WineDetailComponent },
+    { path: 'wine/:id', component: WineDetailComponent },
     { path: '**', redirectTo: '/register' }
 ];
 

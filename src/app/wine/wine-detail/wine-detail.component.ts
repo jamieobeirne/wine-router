@@ -8,23 +8,23 @@ import { WineService } from '../../services/wine.service';
   templateUrl: './wine-detail.component.html',
   styleUrls: ['./wine-detail.component.css']
 })
+
 export class WineDetailComponent {
+
   public wine: Wine;
+
   constructor(private wineService: WineService,
     private route: ActivatedRoute) { }
 
+  /*first solution*/
   ngOnInit() {
+
     const wineCode = this.route.snapshot.paramMap.get('id');
-    this.wineService.getWine(wineCode).subscribe(wine => this.wine = wine);
+    this.wineService.getWine(wineCode).subscribe(clickedWine => this.wine = clickedWine);
   }
 
-  /*public stock: Stock;
-  constructor(private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.route.data.subscribe((data: {stock: Stock}) => {
-      this.stock = data.stock;
-    });
-  }*/
 
 }
+
+
+

@@ -1,0 +1,25 @@
+.detail-container{
+    margin: 50px 0 5px 0 ;
+    height:100vh;
+    font-size: 26px;
+}
+
+.detail-container img {
+    margin-bottom:20px;
+}
+
+.food-container{
+    margin-top: 60px;
+}
+
+.food{
+    margin-top: 15px;
+    display:flex;
+    flex-direction: row;
+    align-items: cente;
+    justify-content: center;
+}
+
+.food-name{
+    padding-right: 8px;
+}

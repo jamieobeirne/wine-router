@@ -56,7 +56,7 @@ export class WineNewReactiveComponent {
       isOnSale: true,
       quantityInCart: 1,
       foodPairing: [],
-      wineID: 0
+      /*wineID: 0*/
     };
   }
 

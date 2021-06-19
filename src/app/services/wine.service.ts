@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Wine } from '../models/Wine';
 
+
 import { Observable, of } from 'rxjs';          /* not from pathways in the book*/
 import { throwError as ObservableThrow } from 'rxjs'; /*not _throw*/
 import { of as ObservableOf } from 'rxjs';
 import { WineQuantityChange } from '../models/WineQuantityChange';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpEvent } from '@angular/common/http';
+import { UserStoreService } from './user-store.service';
+
 
 
 @Injectable()
@@ -16,7 +20,7 @@ export class WineService {
   constructor(private http: HttpClient) { }
 
   getWine(id: string): Observable<Wine> {
-    return this.http.get<Wine>('/api/wine' + id)
+    return this.http.get<Wine>('/api/wine/' + id)
   }
 
   getWines(query: string): Observable<Wine[]> {
@@ -28,8 +32,8 @@ export class WineService {
     return this.http.post('/api/wine', wine);
   }
 
-  changeQuantity(wineID: number, newQuantity: number): Observable<Wine> {
-    return this.http.patch<Wine>('/api/wine/' + wineID,
+  changeQuantity(id: number, newQuantity: number): Observable<Wine> {
+    return this.http.patch<Wine>('/api/wine/' + id,
       {
         changeInQuantity: newQuantity
       });

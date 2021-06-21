@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Wine } from '../models/Wine';
 
-
 import { Observable, of } from 'rxjs';          /* not from pathways in the book*/
 import { throwError as ObservableThrow } from 'rxjs'; /*not _throw*/
 import { of as ObservableOf } from 'rxjs';
@@ -10,7 +9,6 @@ import { WineQuantityChange } from '../models/WineQuantityChange';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { HttpEvent } from '@angular/common/http';
 import { UserStoreService } from './user-store.service';
-
 
 
 @Injectable()
@@ -23,7 +21,12 @@ export class WineService {
     return this.http.get<Wine>('/api/wine/' + id)
   }
 
-  getWines(query: string): Observable<Wine[]> {
+  getWines(): Observable<Wine[]> {
+    console.log();
+    return this.http.get<Wine[]>('/api/wine');
+  }
+
+  getWinesSearch(query: string): Observable<Wine[]> {
     console.log(query);
     return this.http.get<Wine[]>(`/api/wine?q=${query}`);
   }
@@ -39,5 +42,8 @@ export class WineService {
       });
   }
 
+  makeFailingCall() {
+    return this.http.get('/api/fail');
+  }
 
 }

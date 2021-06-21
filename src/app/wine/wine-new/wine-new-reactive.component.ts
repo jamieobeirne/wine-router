@@ -22,9 +22,6 @@ export class WineNewReactiveComponent {
 
   // variable wineService -> Injeccion de Dependencia por Constructor
   constructor(private wineService: WineService, private fb: FormBuilder) {
-
-    //this.wineService = new WineService();
-
     this.createForm();
   }
 
@@ -59,6 +56,7 @@ export class WineNewReactiveComponent {
       /*wineID: 0*/
     };
   }
+
 
   createWine() {
     if (this.wineForm.valid) {

@@ -6,6 +6,11 @@ h2{
     font-size: 37px; 
 }
 
+h1{
+    font-weight: 300;
+    font-size: 35px;
+}
+
 .wine-name{
     margin: 10px 0 10px 0;
 }
@@ -43,4 +48,16 @@ h4{
 .json-message-inner p{
     margin:3px;
     padding:0;
+}
+
+button{
+    margin-top:25px;
+    font-size: 25px;
+    padding: 5px 15px;
+}
+
+
+button:hover{
+    background-color: #9ae1f3;
+    border: 1px solid black
 }

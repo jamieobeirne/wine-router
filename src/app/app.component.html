@@ -1,5 +1,3 @@
-<div class="routes"></div>
-
 <div class="toolbar" role="banner">
   <!--<img width="45" alt="Wine Logo" src="../assets/drink-icon.png" /> -->
   <svg width="35" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="wine-bottle"
@@ -32,7 +30,7 @@
 <div class="routes">
   <div class="links">
     <span>
-      <a routerLink="/login" routerLinkActive="active">
+      <a routerLink="/login" routerLinkActive="active" class="bottom">
         Login
       </a>
     </span>
@@ -41,6 +39,7 @@
         Register
       </a>
     </span>
+
     <span>
       <a routerLink="/wines/list" routerLinkActive="active">
         Wine List
@@ -56,19 +55,3 @@
 <div class="router">
   <router-outlet></router-outlet>
 </div>
-
-
-
-<!--<app-winelist>
-</app-winelist>-->
-<!--<div class="routes">
-  <div>
-    <span><a href="/login">Login</a></span>
-    <span><a href="/register">Register</a></span>
-    <span><a href="/wines/list">Wine List</a></span>
-    <span><a href="/wines/create">Create Wine</a></span>
-  </div>
-</div>
-<div class="router">
-  <router-outlet></router-outlet>
-</div>-->

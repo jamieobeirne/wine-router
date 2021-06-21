@@ -11,3 +11,21 @@
 <div class="wineitem-global-container">
     <app-wineitem *ngFor="let item of wines$ | async" [Data]="item" (SelectedWine)="onSelectedWine($event)">
     </app-wineitem>
+</div>
+
+<div class="interceptor">
+    <div>
+        <button type="button" (click)="fetchWines()">
+            Refetch Winess
+        </button>
+        <button type="button" (click)="makeFailingCall()">
+            Make Failing Call
+        </button>
+        <button type="button" (click)="setAuthToken()">
+            Set Auth Token
+        </button>
+        <button type="button" (click)="resetAuthToken()">
+            Reset Auth Token
+        </button>
+    </div>
+</div>

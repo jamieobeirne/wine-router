@@ -13,9 +13,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutesModule } from './app-routes.module';
 import { LoginComponent } from './user/login/login/login.component';
 import { RegisterComponent } from './user/register/register/register.component';
+
 import { WineDetailComponent } from './wine/wine-detail/wine-detail.component';
 import { UserService } from './services/user.service';
 import { UserStoreService } from './services/user-store.service';
+import { AuthService } from './services/auth.service';
+
+import { WineAppInterceptor } from './services/wine-app.interceptors';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AuthGuard } from './guards/auth.guard';
+import { CreateStockDeactivateGuard } from './guards/wine-new-deactivate-guard.guard';
+import { StockLoadResolverService } from './guards/wine-load-resolver.service';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +44,14 @@ import { UserStoreService } from './services/user-store.service';
     FormsModule,
     AppRoutesModule
   ],
-  providers: [WineService, UserService, UserStoreService],
+  providers: [WineService, UserService, UserStoreService, AuthService, AuthGuard, CreateStockDeactivateGuard, StockLoadResolverService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: WineAppInterceptor,
+      multi: true,
+    }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

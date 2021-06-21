@@ -16,13 +16,15 @@ export class WineDetailComponent {
   constructor(private wineService: WineService,
     private route: ActivatedRoute) { }
 
-  /*first solution*/
-  ngOnInit() {
 
+  ngOnInit() {
     const wineCode = this.route.snapshot.paramMap.get('id');
     this.wineService.getWine(wineCode).subscribe(clickedWine => this.wine = clickedWine);
-  }
 
+    this.route.data.subscribe((data: { wine: Wine }) => {
+      this.wine = data.wine;
+    });
+  }
 
 }
 

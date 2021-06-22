@@ -21,6 +21,7 @@ export class LoginComponent {
       .subscribe((resp) => {
         console.log('Successfully logged in');
         this.message = resp.msg;
+        localStorage.setItem('token', resp.token);/*save token to local storage*/
         this.router.navigate(['wines', 'list']);
       }, (err) => {
         console.error('Error logging in', err);

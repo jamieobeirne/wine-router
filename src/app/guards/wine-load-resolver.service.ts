@@ -13,7 +13,7 @@ export class StockLoadResolverService implements Resolve<Wine> {
     resolve(route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot):
         Wine | Observable<Wine> | Promise<Wine> {
-        const wineCode = route.paramMap.get('id');
-        return this.wineService.getWine(wineCode);
+        const wineData = route.paramMap.get('id');
+        return this.wineService.getWine(wineData);
     }
 }

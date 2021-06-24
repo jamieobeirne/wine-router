@@ -15,12 +15,6 @@ import { tap } from 'rxjs/operators'; //*use tap in place of do*/
 @Injectable()
 export class WineAppInterceptor implements HttpInterceptor {
 
-  /*constructor() { }
-  intercept(req: HttpRequest<any>, next: HttpHandler):
-    Observable<HttpEvent<any>> {
-    console.log('Making a request to ', req.url);
-    return next.handle(req);
-  }*/
 
   constructor(private authService: AuthService) { }
 

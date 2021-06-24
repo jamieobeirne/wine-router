@@ -9,7 +9,7 @@ import { Wine } from './models/Wine';
 })
 
 export class AppComponent {
-  title = 'pec6-ej2';
+  title = 'pec7-ej2';
 
 
 }
